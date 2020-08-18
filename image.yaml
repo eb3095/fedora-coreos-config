@@ -11,7 +11,10 @@ extra-kargs:
 
 # Disable networking by default on firstboot. We can drop this once cosa stops
 # defaulting to `ip=dhcp,dhcp6 rd.neednet=1` when it doesn't see this key.
-ignition-network-kcmdline: []
+ignition-network-kcmdline: 
+    - ip=ens3:dhcp,dhcp6
+    - ip=ens7:none
+    - rd.neednet=1
 
 # Optional remote by which to prefix the deployed OSTree ref
 ostree-remote: fedora
